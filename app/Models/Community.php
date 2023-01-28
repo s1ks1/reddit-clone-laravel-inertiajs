@@ -5,6 +5,7 @@ namespace App\Models;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Post;
 
 class Community extends Model
 {
@@ -25,4 +26,16 @@ class Community extends Model
             ]
         ];
     }
+
+    // Dovodi do greske u vidu onemogucavanja brisanja i editovanja sadrzaja, kao i objave artikala unutar community
+    // Potrebno je rjesiti problem bez brisanja funkcije, ukoliko se funkcija obrise onemogucava se otvaranje prozora objave
+    // public function getRouteKeyName() 
+    // {
+    //     return 'slug';
+    // }
+
+    public function posts()
+{
+    return $this->hasMany(Post::class);
+}
 }

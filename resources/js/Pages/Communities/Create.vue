@@ -25,21 +25,6 @@
                 <InputError class="mt-2" :message="form.errors.name" />
             </div>
 
-            <div>
-                <InputLabel for="slug" value="Slug" />
-
-                <TextInput
-                    id="slug"
-                    type="text"
-                    class="mt-1 block w-full"
-                    v-model="form.slug"
-                    required
-                    autofocus
-                    autocomplete="slug"
-                />
-                <InputError class="mt-2" :message="form.errors.slug" />
-            </div>
-
             <div class="mt-4">
                 <InputLabel for="description" value="Description" />
 

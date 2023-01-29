@@ -8,7 +8,7 @@
                     <span class="font-semibold ml-1">{{post.username}}</span>
                 </div>
             </div>
-            <a href=""><h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">{{ post.title }}</h5></a>
+            <Link :href="route('frontend.communities.posts.show', [community, post.slug])"><h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">{{ post.title }}</h5></Link>
             <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{post.description}}</p>
             <div class="flex m-2 p-2">
                 <p class="mr-2 p-2">Comments(2)</p>

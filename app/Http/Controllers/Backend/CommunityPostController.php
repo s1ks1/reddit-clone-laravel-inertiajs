@@ -25,12 +25,12 @@ class CommunityPostController extends Controller
             'description' => $request->description
         ]);
 
-        return Redirect::route('communities.posts.store', $community->slug);
+        return Redirect::route('frontend.communities.show', $community->slug);
     }
 
     public function edit(Community $community, Post $post)
     {
-        return Inertia::render('Communities/Post/Edit', compact('community', 'post'));
+        return Inertia::render('Communities/Posts/Edit', compact('community', 'post'));
     }
 
     public function update(StorePostRequest $request, Community $community, Post $post)

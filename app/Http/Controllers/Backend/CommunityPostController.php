@@ -13,9 +13,10 @@ class CommunityPostController extends Controller
 {
     public function create(Community $community)
     {
-        return Inertia::render('Communities/Posts/Create', compact('community')); 
+        return Inertia::render('Communities/Posts/Create', compact('community'));
     }
 
+    
     public function store(StorePostRequest $request, Community $community)
     {
         $community->posts()->create([
@@ -25,6 +26,7 @@ class CommunityPostController extends Controller
             'description' => $request->description
         ]);
 
+        // Community ostaje brojacana vrijednost, ne konvertuje u slug vrijednost (id komjunitija treba da se prevede u sadrzaj slug-a)
         return Redirect::route('frontend.communities.show', $community->slug);
     }
 
@@ -32,10 +34,11 @@ class CommunityPostController extends Controller
     {
         return Inertia::render('Communities/Posts/Edit', compact('community', 'post'));
     }
-
+    
     public function update(StorePostRequest $request, Community $community, Post $post)
     {
         $post->update($request->validated());
+
         return Redirect::route('frontend.communities.posts.show', [$community->slug, $post->slug]);
     }
 

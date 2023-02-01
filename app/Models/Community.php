@@ -26,16 +26,13 @@ class Community extends Model
             ]
         ];
     }
-
-    // Dovodi do greske u vidu onemogucavanja brisanja i editovanja sadrzaja, kao i objave artikala unutar community
-    // Potrebno je rjesiti problem bez brisanja funkcije, ukoliko se funkcija obrise onemogucava se otvaranje prozora objave
-    public function getRouteKeyName() 
+    public function getRouteKeyName()
     {
         return 'slug';
     }
 
     public function posts()
-{
-    return $this->hasMany(Post::class);
-}
+    {
+        return $this->hasMany(Post::class);
+    }
 }

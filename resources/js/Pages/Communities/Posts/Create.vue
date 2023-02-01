@@ -59,19 +59,21 @@ import { Head, useForm } from '@inertiajs/vue3';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 
 const props = defineProps({
-  community: Object,
-  errors: Object,
+    community: Object,
+    errors: Object,
 });
 
 const form = useForm({
-  title: "",
-  description: "",
-  url: "",
+    title: "",
+    description: "",
+    url: "",
 });
 
 const submit = () => {
-  form.post(route("communities.posts.store", props.community.slug));
+    form.post(route("communities.posts.store", props.community.id));
 };
+
+
 </script>
 
 
